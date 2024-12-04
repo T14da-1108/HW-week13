@@ -1,18 +1,15 @@
-# 2. const
-# Create a function that, given a value, returns a constant function.
-# This returned function should always return the initial value,
-# regardless of its arguments.
-
-# >>> f = const(42)
-# >>> f()
-# 42
-# >>> f(range(4), range(2), foo="bar")
-# 42
-
 from typing import Any, Callable
 
 
 def const(value: Any) -> Callable[..., Any]:
     """
-    Returns a constant function.
+    Returns a constant function that always returns the given value,
+    regardless of any arguments passed to it.
+
+    Args:
+        value: The value that the constant function should always return.
+
+    Returns:
+        A function that takes any arguments and always returns the given value.
     """
+    return lambda *args, **kwargs: value
